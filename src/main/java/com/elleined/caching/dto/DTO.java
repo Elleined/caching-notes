@@ -6,12 +6,12 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Getter
 @Setter
 @SuperBuilder
 @NoArgsConstructor
-public class PersonDTO extends DTO {
-    private List<Integer> carIds;
+public class DTO implements Serializable {
+    private int id;
+    private String name;
 }

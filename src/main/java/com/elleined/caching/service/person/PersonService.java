@@ -1,10 +1,10 @@
-package com.elleined.caching.service;
+package com.elleined.caching.service.person;
 
 import com.elleined.caching.model.Person;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-public interface PersonService {
+public interface PersonService  {
     Person getById(int id);
     Page<Person> getAll(Pageable pageable);
     Person save(String name);

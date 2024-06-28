@@ -3,7 +3,7 @@ package com.elleined.caching.controller;
 import com.elleined.caching.dto.PersonDTO;
 import com.elleined.caching.mapper.PersonMapper;
 import com.elleined.caching.model.Person;
-import com.elleined.caching.service.PersonService;
+import com.elleined.caching.service.person.PersonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,8 +19,8 @@ public class PersonController {
     private final PersonMapper personMapper;
 
     @GetMapping("/{personId}")
-    public PersonDTO getById(int id) {
-        Person person = personService.getById(id);
+    public PersonDTO getById(@PathVariable("personId") int personId) {
+        Person person = personService.getById(personId);
         return personMapper.toDTO(person);
     }
 

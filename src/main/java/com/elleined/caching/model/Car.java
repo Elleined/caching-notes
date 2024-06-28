@@ -1,6 +1,5 @@
 package com.elleined.caching.model;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,15 +7,14 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
-@Table(name = "tbl_person")
+@Table(name = "tbl_car")
 @Getter
 @Setter
 @SuperBuilder
 @NoArgsConstructor
-public class Person {
+public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,12 +32,12 @@ public class Person {
     )
     private String name;
 
-    @OneToMany(mappedBy = "person")
-    private List<Car> cars;
-
-    public List<Integer> carIds() {
-        return this.getCars().stream()
-                .map(Car::getId)
-                .toList();
-    }
+    @ManyToOne(optional = false)
+    @JoinColumn(
+            name = "person_id",
+            referencedColumnName = "id",
+            nullable = false,
+            updatable = false
+    )
+    private Person person;
 }

@@ -1,4 +1,4 @@
-package com.elleined.caching.service;
+package com.elleined.caching.service.person;
 
 import com.elleined.caching.exception.resource.ResourceNotFoundException;
 import com.elleined.caching.mapper.PersonMapper;
