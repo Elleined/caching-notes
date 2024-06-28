@@ -15,7 +15,6 @@ public interface PersonMapper {
             @Mapping(target = "name", source = "name"),
             @Mapping(target = "carIds", expression = "java(person.carIds())")
     })
-    @Cacheable(value = "personDTO", key = "#person.id")
     PersonDTO toDTO(Person person);
 
     @Mappings({
