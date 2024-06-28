@@ -21,6 +21,14 @@ Demo project with notes that implements caching
 1. Annotate your applivation with @EnableCaching
 2. Annotate your methods with appropriate Caching Annotations.
 
+# Caching annotation attributes
+- value: specify a name for the cache
+- key: defines how each entry of cache will be define uniquely.
+- condition: defines a predicate based on method argument if true it will be cached else will not be cache.
+- unless: defines a predicate based on method returned value if true will be cached else will not be cache.
+- keyGenerator defines a user define key generator instead of using the spring default key generator which is the method parameter will be used as key.
+- allEntries if sets to true all entries with the same name will be deleted.
+  
 # Useful Links
 [For More Comprehensive Tutorial](https://medium.com/vedity/spring-boot-caching-mechanism-8ef901147e60)  
 [For more Comprehensive Tutorial 2](https://medium.com/javajams/how-to-supercharge-your-spring-boot-app-with-3-proven-optimization-techniques-95e00aaf22e2)
