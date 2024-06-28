@@ -6,6 +6,8 @@ import com.elleined.caching.model.Person;
 import com.elleined.caching.repository.PersonRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +22,11 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public Person getById(int id) {
         return personRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Person with id of " + id + " doesn't exists"));
+    }
+
+    @Override
+    public Page<Person> getAll(Pageable pageable) {
+        return personRepository.getAll(pageable);
     }
 
     @Override
