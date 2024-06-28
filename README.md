@@ -25,7 +25,7 @@ Demo project with notes that implements caching
 - value: specify a name for the cache
 - key: defines how each entry of cache will be define uniquely.
 - condition: defines a predicate based on method argument if true it will be cached else will not be cache.
-- unless: defines a predicate based on method returned value if true will be cached else will not be cache.
+- unless: defines a predicate based on method returned value if true will be not cached else will be cache.
 - keyGenerator defines a user define key generator instead of using the spring default key generator which is the method parameter will be used as key.
 - allEntries if sets to true all entries with the same name will be deleted.
   
