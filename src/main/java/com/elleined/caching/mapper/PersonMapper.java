@@ -11,8 +11,7 @@ public interface PersonMapper {
 
     @Mappings({
             @Mapping(target = "id", source = "id"),
-            @Mapping(target = "name", source = "name"),
-            @Mapping(target = "carIds", expression = "java(person.carIds())")
+            @Mapping(target = "name", source = "name")
     })
     PersonDTO toDTO(Person person);
 
