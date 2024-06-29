@@ -10,6 +10,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import java.util.List;
 
+@Cacheable
 @org.hibernate.annotations.Cache(region = "personCache", usage = CacheConcurrencyStrategy.READ_WRITE)
 
 @Entity
@@ -38,10 +39,4 @@ public class Person {
 
     @OneToMany(mappedBy = "person")
     private List<Car> cars;
-
-    public List<Integer> carIds() {
-        return this.getCars().stream()
-                .map(Car::getId)
-                .toList();
-    }
 }
