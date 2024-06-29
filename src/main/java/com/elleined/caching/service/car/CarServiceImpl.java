@@ -1,6 +1,7 @@
 package com.elleined.caching.service.car;
 
 import com.elleined.caching.exception.resource.ResourceNotFoundException;
+import com.elleined.caching.exception.resource.ResourceNotOwnedException;
 import com.elleined.caching.mapper.CarMapper;
 import com.elleined.caching.model.Car;
 import com.elleined.caching.model.Person;
@@ -26,12 +27,12 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public Page<Car> getAll(Pageable pageable) {
-        return carRepository.getAll(pageable);
+    public Page<Car> getAll(Person person, Pageable pageable) {
+        return carRepository.getAll(person, pageable);
     }
 
     @Override
-    public Car save(String name, Person person) {
+    public Car save(Person person, String name) {
         Car car = carMapper.toEntity(name, person);
 
         carRepository.save(car);
@@ -40,15 +41,20 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public void delete(Car car) {
+    public void delete(Person person, Car car) {
+        if (!person.has(car))
+            throw new ResourceNotOwnedException("Cannot delete car! because this person doesn't have this car.");
+
         carRepository.delete(car);
         log.debug("Deleting car success");
     }
 
     @Override
-    public void update(Car car, String name) {
-        car.setName(name);
+    public void update(Person person, Car car, String name) {
+        if (!person.has(car))
+            throw new ResourceNotOwnedException("Cannot update car! because this person doesn't have this car.");
 
+        car.setName(name);
         carRepository.save(car);
         log.debug("Updating car success");
     }

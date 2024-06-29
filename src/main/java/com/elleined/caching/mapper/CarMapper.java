@@ -7,13 +7,16 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
-@Mapper(componentModel = "spring")
+@Mapper(
+        componentModel = "spring",
+        uses = PersonMapper.class
+)
 public interface CarMapper {
 
     @Mappings({
             @Mapping(target = "id", source = "id"),
             @Mapping(target = "name", source = "name"),
-            @Mapping(target = "personId", source = "person.id")
+            @Mapping(target = "personDTO", source = "person")
     })
     CarDTO toDTO(Car car);
 

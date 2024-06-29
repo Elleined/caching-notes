@@ -47,10 +47,12 @@ public class PersonController {
     }
 
     @PutMapping("/{personId}")
-    public void update(@PathVariable("personId") int personId,
+    public String update(@PathVariable("personId") int personId,
                        @RequestParam("name") String name) {
 
         Person person = personService.getById(personId);
         personService.update(person, name);
+
+        return person.getName();
     }
 }
