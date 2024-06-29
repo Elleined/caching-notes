@@ -28,6 +28,10 @@ Demo project with notes that implements caching
 - unless: defines a predicate based on method returned value if true will be not cached else will be cache.
 - keyGenerator defines a user define key generator instead of using the spring default key generator which is the method parameter will be used as key.
 - allEntries if sets to true all entries with the same name will be deleted.
+
+# When to implement caching
+- To the models that has high read and low write ratio, meaning that caching best performs when the model is frequently access and rarely changing data. Why?
+its because saving, update and deleting data in cache is such a mess many things can happen and many aspect you should consider thats why its best use is reading.
   
 # Useful Links
 [For More Comprehensive Tutorial](https://medium.com/vedity/spring-boot-caching-mechanism-8ef901147e60)  
