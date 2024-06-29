@@ -39,4 +39,8 @@ public class Person {
 
     @OneToMany(mappedBy = "person")
     private List<Car> cars;
+
+    public boolean has(Car car) {
+        return this.getCars().contains(car);
+    }
 }

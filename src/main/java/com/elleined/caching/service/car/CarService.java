@@ -7,8 +7,8 @@ import org.springframework.data.domain.Pageable;
 
 public interface CarService {
     Car getById(int id);
-    Page<Car> getAll(Pageable pageable);
-    Car save(String name, Person person);
-    void delete(Car car);
-    void update(Car car, String name);
+    Page<Car> getAll(Person person, Pageable pageable);
+    Car save(Person person, String name);
+    void delete(Person person, Car car);
+    void update(Person person, Car car, String name);
 }

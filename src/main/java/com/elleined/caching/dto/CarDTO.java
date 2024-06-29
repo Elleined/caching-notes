@@ -10,5 +10,5 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 public class CarDTO extends DTO {
-    private int personId;
+    private PersonDTO personDTO;
 }
