@@ -34,7 +34,6 @@
 		<redisson-version>3.32.0</redisson-version>
 	</properties>
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.redisson/redisson-hibernate-6 -->
 		<dependency>
 			<groupId>org.redisson</groupId>
 			<artifactId>redisson-hibernate-6</artifactId>
