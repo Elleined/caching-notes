@@ -5,9 +5,6 @@ import com.elleined.caching.mapper.PersonMapper;
 import com.elleined.caching.model.Person;
 import com.elleined.caching.service.person.PersonService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -22,14 +19,12 @@ public class PersonController {
     private final PersonMapper personMapper;
 
     @GetMapping("/{personId}")
-    @Cacheable(value = "personDTO", key = "#personId")
     public PersonDTO getById(@PathVariable("personId") int personId) {
         Person person = personService.getById(personId);
         return personMapper.toDTO(person);
     }
 
     @GetMapping
-    @Cacheable(value = "personDTOs")
     public Page<PersonDTO> getAll(@RequestParam(required = false, defaultValue = "1", value = "pageNumber") int pageNumber,
                                   @RequestParam(required = false, defaultValue = "5", value = "pageSize") int pageSize,
                                   @RequestParam(required = false, defaultValue = "ASC", value = "sortDirection") Sort.Direction direction,
@@ -46,14 +41,12 @@ public class PersonController {
     }
 
     @DeleteMapping("/{personId}")
-    @CacheEvict(value = "personDTO", allEntries = true)
     public void delete(@PathVariable("personId") int personId) {
         Person person = personService.getById(personId);
         personService.delete(person);
     }
 
     @PutMapping("/{personId}")
-    @CachePut(value = "personDTO", key = "#personId")
     public void update(@PathVariable("personId") int personId,
                        @RequestParam("name") String name) {
 

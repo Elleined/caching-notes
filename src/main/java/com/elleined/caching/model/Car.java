@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+@org.hibernate.annotations.Cache(region = "carCache", usage = CacheConcurrencyStrategy.READ_WRITE)
 
 @Entity
 @Table(name = "tbl_car")

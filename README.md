@@ -22,5 +22,7 @@ Demo project with notes that implements caching
 2. Annotate your methods with appropriate Caching Annotations.
 
 # Useful Links
-[For More Comprehensive Tutorial](https://medium.com/vedity/spring-boot-caching-mechanism-8ef901147e60)  
-[For more Comprehensive Tutorial 2](https://medium.com/javajams/how-to-supercharge-your-spring-boot-app-with-3-proven-optimization-techniques-95e00aaf22e2)
+[Hibernate 2nd level caching 1](https://medium.com/@shahto/scaling-spring-boot-with-hibernate-2nd-level-cache-on-redis-54d588fc8b06#:~:text=Level%202%20Cache%3A%20is%20a,is%20therefore%20disabled%20by%20default.)
+[Hibernate 2nd level caching 2](https://medium.com/@dennisholee/hibernate-level-2-cache-3dc284bdd416)
+[Service level caching 1](https://medium.com/vedity/spring-boot-caching-mechanism-8ef901147e60)  
+[Service level caching 2](https://medium.com/javajams/how-to-supercharge-your-spring-boot-app-with-3-proven-optimization-techniques-95e00aaf22e2)  

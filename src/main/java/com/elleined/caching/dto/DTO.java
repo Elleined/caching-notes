@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Setter
 @SuperBuilder
 @NoArgsConstructor
-public class DTO implements Serializable {
+public class DTO {
     private int id;
     private String name;
 }

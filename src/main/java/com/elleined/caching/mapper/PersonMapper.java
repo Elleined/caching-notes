@@ -5,7 +5,6 @@ import com.elleined.caching.model.Person;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
-import org.springframework.cache.annotation.Cacheable;
 
 @Mapper(componentModel = "spring")
 public interface PersonMapper {
